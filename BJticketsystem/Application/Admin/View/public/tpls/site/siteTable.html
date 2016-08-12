@@ -1,0 +1,48 @@
+<div class="row" ng-controller="SiteCtrl">
+    <div class="col-xs-12" ui-view>
+
+        <div class="well with-header  with-footer">
+            <div class="header bg-blue">
+                站点表
+            </div>
+            <a href="javascript:void(0);" class="btn btn-default" ui-sref=".newSite">新建一个站点</a>
+            <table class="table table-hover">
+                <thead class="bordered-darkorange">
+                <tr>
+                    <th>
+                        站点ID
+                    </th>
+                    <th>
+                        站点名
+                    </th>
+                    <th>
+                        父站点ID
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="siteinfo in sitesinfo" on-finish-render-filters>
+                    <td>
+                        {{siteinfo.id}}
+                    </td>
+                    <td>
+                        {{siteinfo.name}}
+                    </td>
+                    <td>
+                        {{siteinfo.pid}}
+                    </td>
+                    <td>
+                        <eidtbtn eidtone="toEdit(siteinfo)" ui-sref=".editSite"></eidtbtn>
+                        <deletebtn delete="doDelete(siteinfo.id,'http://1.bjticketsystem.sinaapp.com/index.php/Admin/Site/deleteBusinfo',getdata)" ></deletebtn>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>

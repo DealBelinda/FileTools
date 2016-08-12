@@ -1,0 +1,39 @@
+<div class="col-lg-6 col-sm-6 col-xs-12">
+    <div class="widget">
+        <div class="widget-header bordered-bottom bordered-lightred">
+            <span class="widget-caption">编辑站点</span>
+        </div>
+        <div class="widget-body">
+            <div id="horizontal-form">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group" ng-show="false">
+                        <label for="name" class="col-sm-2 control-label no-padding-right">站点Id</label>
+                        <div class="col-sm-10">
+                            <input required="required" type="text" name="id" id="id" ng-model="editSite.id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label no-padding-right">请选择父类站点</label>
+                        <div class="col-sm-10">
+                            <select name="pid" id="pid" ng-model="editSite.pid">
+                                <option value="0">无父节点</option>
+                                <option  ng-repeat="parentSiteinfo in parentSitesinfo" value="{{parentSiteinfo.id}}">{{parentSiteinfo.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label no-padding-right">请输入站点名</label>
+                        <div class="col-sm-10">
+                            <input required="required" type="text" name="name" id="name" ng-model="editSite.name"></div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default"  ng-click="doEditSite()">提交</button>
+                            <button  class="btn btn-default" ui-sref="site">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

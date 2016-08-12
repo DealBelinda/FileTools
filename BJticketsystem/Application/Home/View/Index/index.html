@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en"  style="font-size:92px;">
+<head>
+	<meta charset="UTF-8">
+	<meta content="user-scalable=no ,width=device-width, initial-scale=1.0" name="viewport" />
+	<title>广深行讯通</title>
+	<link rel="stylesheet" href="__ROOT__/Application/Home/View/public/css/index.css?vesion=4.1">
+	<link rel="stylesheet" href="__ROOT__/Application/Home/View/public/css/reset.css">
+	<link rel="stylesheet" href="__ROOT__/Application/Home/View/public/css/public.css?version=1.8">
+	<link rel="stylesheet" href="__ROOT__/Application/Home/View/public/css/dateinput.css?version=2.1">
+	<script type="text/javascript">
+             var startStationDetail_url = '{:U("startStationDetail")}' ;
+             var endStationDetail_url   = '{:U("endStationDetail")}' ;
+             var schedulesQuery_url   = '{:U("schedulesQuery")}' ;
+	</script>
+
+</head>
+<body style="font-size:17.6px;">
+	<section class="container">
+		<header >
+			<h1>班次查询</h1>
+			<a href="tel:13822558552"><img id="telphone" src="__ROOT__/Application/Home/View/public/img/telphone.png"></a>
+		</header>
+		<div class="content">
+			<form action="javascipt:;" >
+				<div class="main">
+					<div class="start clr">
+						<label class="select-lable">
+							<span >
+								<img  class='picture'src="__ROOT__/Application/Home/View/public/img/station.png" alt="" ></span>
+							出发站点
+						</label>
+						<div>
+							<span class="Station" id="startStation"><span class="plr">请输入出发站点</span></span>
+							<span>
+								<img  class='arrow' src="__ROOT__/Application/Home/View/public/img/arrow2.png?get=1" alt=""></span>
+						</div>
+
+					</div>
+					<hr/>
+					<div class="end clr">
+						<label class="select-lable">
+							<span >
+								<img class='picture' src="__ROOT__/Application/Home/View/public/img/station.png" alt="" ></span>
+							到达站点
+						</label>
+						<div>
+							<span class="Station" id="endStation"><span class="plr">请输入到达站点</span></span>
+							<span>
+								<img class='arrow' src="__ROOT__/Application/Home/View/public/img/arrow2.png?get=1" alt=""></span>
+						</div>
+
+					</div>
+
+					<hr/>
+					<div class="date">
+						<label class="select-lable">
+							<span >
+								<img class='picture'src="__ROOT__/Application/Home/View/public/img/date.png" alt="" ></span>
+							出发日期
+						</label>
+						<div class="clr">
+							<span class="dateSelection" id="dateSelection">
+								<!-- <select id='date' ></select> -->
+								<span class="plr">请选择乘车日期</span>
+							</span>
+							<span class="clr">
+								<img id='spical' class="arrow" src="__ROOT__/Application/Home/View/public/img/arrow2.png?get=1" alt="">
+								</span>
+						</div>
+						<input type="text" id="date">
+					</div>
+					<hr/>
+				</div>
+				<div class="submit">
+					<button type="button" id ='jump'>查询</button>
+				</div>
+
+			</form>
+		</div>
+		<div id='footer'>
+			<footer>
+				<p>© 广深行讯通&nbsp&nbsp       技术支持：伯爵科技</p>
+			</footer>
+
+		</div>
+	</section>
+	<script src="__ROOT__/Application/Home/View/public/js/index.js?version1.2"></script>
+	<script src="__ROOT__/Application/Home/View/public/js/dateinput.js?version1.4"></script>
+	<script>
+		$(function(){
+
+			var toDay = new Date();
+			console.log((new Date()).setDate(toDay.getDate() + 7));
+
+			var dateArr = [{
+				"end": new Date((new Date()).setDate(toDay.getDate() + 5)),
+				"start": toDay
+			}]
+
+
+
+			var datepickparam = {
+				limitstart: new Date,
+				onpicked: ondatepicked,
+				markArray: dateArr,
+				marksale: true
+			};
+
+			function ondatepicked(a, b) {
+				var c = $.getdatedesc(a.format("yyyy/MM/dd"), 0);
+				b.textes(c[0] + " " + c[1])
+			}
+
+			// function(a) {
+			// 	datepickparam.marksale = a.marksale;
+			// 	a = a.markArray;
+			// 	if ($.isArray(a)) {
+			// 		for (var b = 0; b < a.length; b++) {
+			// 			var c = a[b];
+			// 			c.start = new Date(c.start);
+			// 			c.end = new Date(c.end)
+			// 		}
+			// 		datepickparam.markArray = a
+			// 	}
+			// }
+
+			$(".dateSelection").bind("click",function(e){
+				$.Calendar.call(e,datepickparam);
+			});
+
+
+			$(".date").bind("click",function(e){
+
+				$(".dateSelection").click();
+			})
+		});
+
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+h1{
+	font-size: 1.2em; 
+	color: #fff;
+	line-height: 14px;
+
+}
+#img{
+	float: left;
+	max-width: 16px;
+}
+.container header{
+    background: #00b38a;
+	text-align: center;
+	padding: 15px;
+	height: 20px;
+
+}
+h5{
+	display: inline;
+}
+.detail{
+    background:rgb(255,255,255);
+}
+.Time{
+	margin-bottom: 20px;
+	height: 40px;
+}
+.update{
+	height: 50px;
+	width: 25%;
+	float: left;
+	text-align: center;
+	line-height: 240%;
+	background: #f8f8f8;
+	border-bottom: 1px solid #DDDDDD;
+}
+.date{
+	height: 50px;
+	text-align: center;
+	line-height: 240%;
+	width: 50%;
+	float: left;
+	background: #f8f8f8;
+	border-bottom: 1px solid #DDDDDD;
+
+}
+.Detail span{
+	margin:5px 1%;
+}
+.Detail:hover{
+	background: rgb(230,230,230);
+}
+
+.ticket{
+	float: right;
+	color: #888888;
+	margin-top: 10px;
+	font-size: 0.8em;
+	margin-right: 5px;
+}
+.price{
+	float: right;
+    color: #fe6738;
+    font-size: 1.4em;
+    margin-right: 4px;
+    margin-bottom: -19px;
+    font-weight: 600;
+    line-height: 1.8;
+}
+
+.price .mark {
+	font-size: 0.7em;
+}
+
+
+
+.jump{
+    height: 100%;
+    float: left;
+   	color: rgb(153,153,153);
+   	text-align: center;
+}
+
+.xj{
+    float: left;
+    line-height: 10px;
+}
+#star{
+    width: 22px;
+}
+.message{
+	width: 98%;
+    float: left;
+    padding: 0 1%;
+    border-top: 1px solid rgb(230,230,230);
+    border-bottom: 1px solid rgb(230,230,230);
+    background: white;
+	margin-top: 10px;
+}
+.span-main{
+    display: block;
+    clear: both;
+}
+
+.span-main .station {
+	line-height: 1.75;
+}
+/*.span-main img{
+	float: left;
+	width: 23px;
+
+}*/
+.station{
+    float: left;
+    width: 30%;
+}
+.stationimg{
+	float: left;
+	margin-top: 3px;
+
+	border: 1px solid white;
+	margin-left: 62px;
+}
+.star{
+	/*background: url("http://simg1.qunarzz.com/bus/newicon.png") no-repeat -573px -69px;*/
+	    max-width: 16px;
+    margin-top: 6px;
+} 
+.end{
+	/*background: url("http://simg1.qunarzz.com/bus/newicon.png") no-repeat -544px -69px;*/
+	    max-width: 16px;
+    margin-top: 6px;
+}
+.time{
+	font-size: 1.1em;
+	font-weight: 700;
+    position: absolute;
+    margin-top: 17px;
+
+}
+.go-right{
+	width: 15px;
+	margin: 0 5px;
+	margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: -3px;
+}
+
+.clr::after {
+	content: " ";
+	height: 0px;
+	width: 0px;
+	display: block;
+	clear: both;
+}
+
+.span-main.clr  .station+span {
+	margin-left: -21px;
+}
+
+.bc {
+
+	position: absolute;
+	font-size: 0.9em;
+	color: #888;
+	margin-top: -20px;
+	margin-left: -80px;
+}
+
+.no-sell .span-main,.no-sell .span-main .price {
+
+	color:#888 !important;
+}
