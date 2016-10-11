@@ -1,0 +1,149 @@
+
+
+<div class="row" ng-controller="DivisionCtrl">
+    <div class="col-xs-12" ui-view>
+
+        <div class="well with-header  with-footer">
+            <div class="header bg-blue">
+                路线表
+            </div>
+            <a href="javascript:void(0);" class="btn btn-default" ui-sref=".newDivision">新建一条路线</a>
+            <div class="col-md-5">
+                <div class="input-group">
+                    <input class="form-control date-picker" id="id-date-picker-1" type="text"
+                           data-date-format="yyyy-mm-dd" ng-model="params.date" name="date" placeholder="起始时间">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar "></i>
+                                                    </span>
+                </div>
+                <select name="busid" id="busid" ng-model="saixuanBusid" ng-change="clearPage();getdata();" class="form-control">
+                    <option value="-1">不筛选</option>
+                    <option value="{{businfo.id}}" ng-repeat="businfo in bussinfo">{{businfo.plate_number}}</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-default" ng-click="clearPage();changeDate();getdata()">日期筛选</button>
+                <button type="submit" class="btn btn-default" ng-click="clearPage();clearDate()">停止日期筛选</button>
+            </div>
+
+            <table class="table table-hover">
+                <thead class="bordered-darkorange">
+                <tr>
+                    <th>
+                        路线Id
+                    </th>
+                    <th>
+                        路线状态
+                    </th>
+                    <th>
+                        发车日期
+                    </th>
+
+                    <th>
+                        大巴车牌号
+                    </th>
+                    <th>
+                        发车站点
+                    </th>
+                    <th>
+                        到达站点
+                    </th>
+                    <th>
+                        票价
+                    </th>
+                    <th>
+                        票数
+                    </th>
+                    <th>
+                        跟车人员电话
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="division in divisions" on-finish-render-filters>
+                    <td>
+                        {{division.id}}
+                    </td>
+                    <td>
+                        {{division.status | divisionStatus}}
+                    </td>
+                    <td>
+                        {{division.date}}
+                    </td>
+                    <td>
+                        {{division.bus_plate_number}}
+                    </td>
+                    <td>
+                        {{division.start_site}}
+                    </td>
+                    <td>
+                        {{division.reach_site}}
+                    </td>
+                    <td>
+                        {{division.price}}
+                    </td>
+                    <td>
+                        {{division.ticket}}
+                    </td>
+                    <td>
+                        {{division.service_phone}}
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button href="javascript:;" ng-click="getSellStatus(division.id)" ui-sref=".sellStatus" style="background: #52ADAD;
+    border: none;
+    padding: 0 5px;
+    margin-bottom: 4px;
+    color: #fff;">售票情况</button>
+                            <button href="javascript:;" ng-click="doShop(division.id)" ng-show="division.status == 1" style="background: red;
+    border: none;
+    color: #fff;
+    padding: 0 8px;">停运</button>
+                            <button href="javascript:;" ng-click="doStart(division.id)" ng-show="division.status != 1" style="background: #31ad36;
+    border: none;
+    padding: 0 5px;
+    margin-bottom: 4px;
+    color: #fff;">开通</button>
+                            <button id="btnGroupVerticalDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                更多操作<i class="fa fa-angle-down"></i>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="btnGroupVerticalDrop1">
+                                <li>
+                                    <eidtbtn eidtone="toEdit(division)" ui-sref=".editDivision"></eidtbtn>
+                                </li>
+                                <li>
+                                    <deletebtn delete="doDelete(division.id,'http://1.bjticketsystem.sinaapp.com/index.php/Admin/Division/deleteDivision',getdata)" ></deletebtn>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <nav data-ng-init="initDate()">
+                <ul class="pagination">
+                    <li ng-hide="params.page == 1" ng-click="update(params.page-1)">
+                        <a href="javascript:;" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li ng-repeat="pages in pagesArr track by $index  " ng-class="{true: 'active'}[pages == page+1]" ng-click="update(pages)">
+                        <a href="javascript:;">{{pages}}</a>
+                    </li>
+
+                    <li ng-click="update(params.page+1)" ng-hide="page == Math.ceil(params.totals/15)">
+                        <a href="javascript:;" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div >
+
+</div>
+

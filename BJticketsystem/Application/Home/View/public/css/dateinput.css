@@ -1,0 +1,38 @@
+.calendar{
+	margin-top:.6rem;background:#FBFBFB;
+	transition:all 0.3s ease-out;
+	-webkit-transition:all 0.3s ease-out;
+	-webkit-transform: scale(1, 1);
+	transform: scale(1, 1);
+}
+.calendar_scale{
+	-webkit-transform: scale(0, 0);
+	transform:  scale(0, 0);
+	opacity: 0;
+}
+.calendar_share{
+	top:0;left:0;width:100%;height:100%;position:fixed;background:rgba(0,0,0,0.4);z-index:9999999;
+	transition:opacity 0.3s ease-out;
+	-webkit-transition:background .3s ease-out;
+}
+.calendar_month_title{height:40px;height:.4rem;line-height:40px;line-height:.4rem;font-size:16px;font-size:.16rem;font-weight:700;border-bottom:1px solid #FF6100}
+.calendar_month_title_info{text-align:center;color:#FF6100}
+.month_title_next,.month_title_previous{font-size:12px;font-size:.12rem;color:#FF6100}
+.month_title_previous{padding-left:.05rem;text-align:left;width:25%}
+.month_title_next{padding-right:.05rem;text-align:right;width:25%}
+.calendar_table{width:100%;border-collapse:collapse}
+.color_calendar_month_day{color:#333}
+.bg_calendar_month_day{background:#E5E5E5}
+.bg_calendar_presale{background-image:url(../img/calendar_sale.png)!important;background-size:.25rem .25rem!important;background-repeat:no-repeat!important;background-position:right bottom!important}
+.bg_calendar_ticket{background-image:url(../img/calendar_ticket.png)!important;background-size:.25rem .25rem!important;background-repeat:no-repeat!important;background-position:right bottom!important}
+.calendar_month_day{width:14.285%;height:16.6666%;text-align:center;font-size:14px;font-size:.14rem;border:1px solid #fff}
+.month_day_ininer{overflow:hidden;box-sizing:border-box}
+.color_calendar_day{color:#A5A4A4}
+.color_calendar_day_special{color:#FB8742}
+.style_calendar_day_disabled{color:#d5d5d5;background:#F0F0F0;opacity:.7}
+.today_calendar_day_special{color:#fff;background:#FFAE7E;background-image:url(../img/calendar_today.png)!important;background-size:.25rem .25rem!important;background-repeat:no-repeat!important;background-position:right bottom!important}
+.marker,.touch_calendar_day{color:#fff!important;background:#39F}
+.calendar_week{border-bottom:1px solid #d5d5d5;padding-top:.02rem}
+.calendar_week_day{width:14.285%;height:30px;height:.3rem;text-align:center;font-size:12px;font-size:.12rem}
+.week_day_ininer{margin:.02rem;line-height:24px;line-height:.24rem}
+.calendar_jieqi_label{display:inline-block;width:100%;font-size:9px;font-size:.09rem;position:relative;top:-15%;color:#FF6100}
